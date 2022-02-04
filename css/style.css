@@ -625,6 +625,9 @@ section {
   background: #fff;
   color: #0d0d0d;
 }
+#trucazo {
+  opacity: 0;
+}
 
 @media (max-width: 1200px) {
   html {

@@ -56,7 +56,7 @@
                 <i class="fas fa-envelope"></i>
                 <div class="info">
                     <h3>email :</h3>
-                    <p>jetse30@gmail.com</p>
+                    <a href="mailto:jetse30@gmail.com">jetse30@gmail.com</a>
                 </div>
             </div>
 
@@ -64,7 +64,7 @@
                 <i class="fas fa-phone"></i>
                 <div class="info">
                     <h3>telefono :</h3>
-                    <p>4281175664</p>
+                    <a href="tel:123456789">428-1032-666</a>
                 </div>
             </div>
 
@@ -79,27 +79,42 @@
 
     </div>
 
-    <form action="">
+    <form id="form" action="" >
 
         <div class="inputBox">
-            <input type="text" placeholder="nombre completo">
-            <input type="number" placeholder="telefono">
+            <input name="name" type="text" placeholder="nombre completo">
+            <input name="telefono" type="number" placeholder="telefono">
         </div>
 
         <div class="inputBox">
-            <input type="email" placeholder="correo electronico">
-            <input type="text" placeholder="empresa">
+            <input name="email" type="email" placeholder="correo electronico">
+            <input name="text" type="text" placeholder="empresa">
         </div>
 
-        <textarea name="" placeholder="escriba su mensaje" id="" cols="30" rows="10"></textarea>
+        <textarea name="message" placeholder="escriba su mensaje" id="message" cols="30" rows="10"></textarea>
 
-        <input type="submit" value="enviar" class="btn">
+        <input name="enviar" type="submit" value="enviar" class="btn">
 
     </form>
+    <a href="mailto:jetse30@gmail.com" id="trucazo">mail</a>
 
 </div>
 
 </section>
+<script>
+    const $form = document.querySelector('#form')
+    const $buttonMailto = document.querySelector('#trucazo')
+
+    $form.addEventListener('submit', handleSubmit)
+
+    function handleSubmit(event){
+        event.preventDefault()
+       const form = new FormData(this)
+       $buttonMailto.setAttribute('href', `mailto:jetse30@gmail.com?subject=${form.get('name')} ${form.get('email')} &body=${form.get('message')}`)
+       $buttonMailto.click()
+
+    }
+</script>
 
 <!-- contact section ends -->
 
